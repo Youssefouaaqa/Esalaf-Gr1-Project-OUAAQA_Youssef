@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainapp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="761.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.esalaf.DashboardController">
+   <children>
+      <VBox fx:id="adminDashboard" prefHeight="400.0" prefWidth="168.0" style="-fx-background-color: #EF4040;">
+         <children>
+            <Label prefHeight="39.0" prefWidth="168.0" style="-fx-background-color: #F7DF33;" text="  Bonjour Youssef!">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Button fx:id="espaceclientbuttonClick" mnemonicParsing="false" onAction="#switchtab" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #F7DF33;" text="Espace Clients">
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="espaceproduitsButtonClick" mnemonicParsing="false" onAction="#switchtab" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #F7DF33;" text="Espace Produits" />
+            <Button fx:id="espacecommandeButtonClick" mnemonicParsing="false" onAction="#switchtab" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #F7DF33;" text="Cahier de Credit" />
+            <Button fx:id="exitButtClick" mnemonicParsing="false" onAction="#exitButtClick" style="-fx-background-color: #F7DF33;" text="Log Out">
+               <VBox.margin>
+                  <Insets top="210.0" />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="backpane" layoutX="167.0" prefHeight="400.0" prefWidth="593.0">
+         <children>
+            <ImageView fitHeight="401.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="clientsPage" layoutX="168.0" prefHeight="400.0" prefWidth="591.0" visible="false">
+         <children>
+            <TableView fx:id="tab_Cli" layoutX="2.0" layoutY="264.0" onMouseClicked="#onMouseClick" prefHeight="136.0" prefWidth="591.0">
+              <columns>
+                <TableColumn fx:id="col_idCli" prefWidth="124.66664123535156" text="ID" />
+                <TableColumn fx:id="col_nomCli" prefWidth="107.3333740234375" text="Nom" />
+                  <TableColumn fx:id="col_prenomCli" prefWidth="122.66671752929688" text="Prenom" />
+                  <TableColumn fx:id="col_teleCli" prefWidth="234.66668701171875" text="Telephone" />
+              </columns>
+            </TableView>
+            <Label layoutX="36.0" layoutY="56.0" text="ID Client" />
+            <TextField fx:id="idCliField" layoutX="36.0" layoutY="81.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="36.0" layoutY="114.0" text="Nom : " />
+            <TextField fx:id="nomCliField" layoutX="36.0" layoutY="142.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="358.0" layoutY="56.0" text="Prenom : " />
+            <TextField fx:id="prenomCliField" layoutX="358.0" layoutY="81.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="358.0" layoutY="114.0" text="Telephone : " />
+            <TextField fx:id="teleCliField" layoutX="358.0" layoutY="142.0" prefHeight="25.0" prefWidth="191.0" />
+            <Button fx:id="AjouterButtClick" layoutX="149.0" layoutY="199.0" mnemonicParsing="false" onAction="#onAjouterButtClick" style="-fx-background-color: #EF4040;" text="Ajouter" textFill="WHITE" />
+            <Button fx:id="suppButtClick" layoutX="325.0" layoutY="199.0" mnemonicParsing="false" onAction="#onsuppButtClick" style="-fx-background-color: #EF4040;" text="Supprimer" textFill="WHITE" />
+            <Button fx:id="modButtClick" layoutX="233.0" layoutY="199.0" mnemonicParsing="false" onAction="#onmodButtClick" style="-fx-background-color: #EF4040;" text="Modifier" textFill="WHITE" />
+            <Label prefHeight="35.0" prefWidth="595.0" style="-fx-background-color: #F7DF33;" text="                                       CLIENTS">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="produitspage" layoutX="167.0" layoutY="-1.0" prefHeight="400.0" prefWidth="591.0" visible="false">
+         <children>
+            <TableView fx:id="prod_tab" layoutX="2.0" layoutY="273.0" onMouseClicked="#onMouseClickProd" prefHeight="127.0" prefWidth="591.0">
+               <columns>
+                  <TableColumn fx:id="col_idProd" prefWidth="70.66668701171875" text="ID" />
+                  <TableColumn fx:id="col_nomProd" prefWidth="302.00001525878906" text="Nom" />
+                  <TableColumn fx:id="col_quantProd" prefWidth="116.66668701171875" text="Quantite" />
+                  <TableColumn fx:id="col_prixProd" prefWidth="101.33331298828125" text="Prix" />
+               </columns>
+            </TableView>
+            <Label layoutX="14.0" layoutY="74.0" text="Id Produit : " />
+            <TextField fx:id="idProdField" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="14.0" layoutY="144.0" text="Nom : " />
+            <TextField fx:id="nomProdField" layoutX="14.0" layoutY="167.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="366.0" layoutY="74.0" text="Prix : " />
+            <TextField fx:id="prixProdField" layoutX="365.0" layoutY="98.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="366.0" layoutY="144.0" text="Quantite : " />
+            <Button fx:id="AjouterProdButtClick" layoutX="177.0" layoutY="218.0" mnemonicParsing="false" onAction="#onAjouterProdButtClick" style="-fx-background-color: #EF4040;" text="Ajouter" textFill="WHITE" />
+            <Button fx:id="suppProdButtClick" layoutX="355.0" layoutY="218.0" mnemonicParsing="false" onAction="#onsuppProdButtClick" style="-fx-background-color: #EF4040;" text="Supprimer" textFill="WHITE" />
+            <Button fx:id="modProdButtClick" layoutX="262.0" layoutY="218.0" mnemonicParsing="false" onAction="#onmodProdButtClick" style="-fx-background-color: #EF4040;" text="Modifier" textFill="WHITE" />
+            <Label layoutY="-4.0" prefHeight="42.0" prefWidth="593.0" style="-fx-background-color: #F7DF33;" text="                                     PRODUITS">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="quantProdField" layoutX="366.0" layoutY="167.0" onMouseClicked="#produitsspinnerValue" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Cahierdecredit" layoutX="168.0" prefHeight="400.0" prefWidth="591.0" visible="false">
+         <children>
+            <TableView fx:id="tabCom" layoutX="1.0" layoutY="283.0" onMouseClicked="#onMouseClickComm" prefHeight="117.0" prefWidth="591.0">
+              <columns>
+                <TableColumn fx:id="col_idcom" prefWidth="84.66668701171875" text="Id Commande" />
+                <TableColumn fx:id="col_datecom" prefWidth="91.33329772949219" text="Date" />
+                  <TableColumn fx:id="col_clicom" prefWidth="92.0" text="Client" />
+                  <TableColumn fx:id="col_prodcom" prefWidth="245.33340454101562" text="Produits" />
+                  <TableColumn fx:id="col_creditcom" prefWidth="76.6666259765625" text="Credit" />
+              </columns>
+            </TableView>
+            <Label layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="91.0" text="Id Commande" />
+            <TextField fx:id="idcomField" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="191.0" />
+            <Label layoutX="13.0" layoutY="110.0" prefHeight="17.0" prefWidth="102.0" text="Date Commande" />
+            <Label layoutX="347.0" layoutY="50.0" prefHeight="17.0" prefWidth="65.0" text="Client" />
+            <ComboBox fx:id="choisirClient" layoutX="348.0" layoutY="73.0" onAction="#choisirClient" prefHeight="25.0" prefWidth="191.0" promptText="choisir Client" style="-fx-background-color: #EF4040b5;" />
+            <Label layoutX="344.0" layoutY="110.0" prefHeight="17.0" prefWidth="71.0" text="Produits" />
+            <Label layoutX="263.0" layoutY="174.0" prefHeight="17.0" prefWidth="81.0" text="Prix Total" />
+            <TextField fx:id="prixcomField" layoutX="198.0" layoutY="192.0" prefHeight="25.0" prefWidth="191.0" />
+            <Button fx:id="AjtComButt" layoutX="177.0" layoutY="231.0" mnemonicParsing="false" onAction="#onAjtComButt" style="-fx-background-color: #EF4040;" text="Ajouter" textFill="WHITE" />
+            <Button fx:id="ModComButt" layoutX="263.0" layoutY="231.0" mnemonicParsing="false" onAction="#onModComButt" style="-fx-background-color: #EF4040;" text="Modifier" textFill="WHITE" />
+            <Button layoutX="353.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSuppComButt" style="-fx-background-color: #EF4040;" text="Supprimer" textFill="WHITE" />
+            <Label layoutX="-1.0" prefHeight="35.0" prefWidth="594.0" style="-fx-background-color: #F7DF33;" text="                                 COMMANDES">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datecomField" layoutX="7.0" layoutY="130.0" prefHeight="25.0" prefWidth="198.0" />
+            <ComboBox fx:id="choisirProd" layoutX="349.0" layoutY="130.0" onAction="#choisirProd" prefHeight="25.0" prefWidth="191.0" promptText="choisir Produit" style="-fx-background-color: #EF4040b5;" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
